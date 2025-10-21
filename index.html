@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunset Properties - Luxury Apartment Living</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), #4a5568;
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    nav {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2d3748;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #2d3748;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .feature-card h3 {
+      color: #2d3748;
+      margin: 1rem 0;
+    }
+    .feature-icon {
+      font-size: 3rem;
+    }
+    .cta {
+      background: #4299e1;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .cta h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .cta button {
+      background: white;
+      color: #4299e1;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    footer {
+      background: #2d3748;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">🏢 Sunset Properties</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Sunset Properties</h1>
+      <p>Modern living spaces in the heart of the city</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Our Amenities</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🏊</div>
+        <h3>Swimming Pool</h3>
+        <p>Relax in our heated outdoor pool open year-round</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💪</div>
+        <h3>Fitness Center</h3>
+        <p>State-of-the-art gym equipment available 24/7</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🅿️</div>
+        <h3>Parking</h3>
+        <p>Secure underground parking for all residents</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Security</h3>
+        <p>24/7 security and concierge service</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Ready to Make Sunset Properties Your Home?</h2>
+    <p>Schedule a tour or chat with us to learn more about availability and pricing</p>
+    <button onclick="window.$chatwoot?.toggle()">Chat With Us Now</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Sunset Properties. All rights reserved.</p>
+    <p>123 Main Street, City, State 12345 | (555) 123-4567</p>
+  </footer>
+
+  <!-- Chatwoot Widget Script -->
+  <script>
+  (function(d,t) {
+    var BASE_URL="https://citadel-inbox-staging-f747bfc18e6d.herokuapp.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'XeQNycQaD44W3hDfU2jJ5RFm',
+        baseUrl: BASE_URL
+      });
+
+      // Set user after widget is ready
+      window.addEventListener('chatwoot:ready', function () {
+        window.$chatwoot.setUser('francois-test-user', {
+          email: 'kiesecoms.francois@gmail.com',
+          name: 'Francois Kiesecoms',
+          identifier_hash: 'a01fe9e61fd3aa26b99a9b702331504d8a52f3865b2b1431d24b1e4f21d60585'
+        });
+      });
+    }
+  })(document,"script");
+  </script>
+</body>
+</html>

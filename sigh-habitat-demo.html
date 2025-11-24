@@ -233,6 +233,9 @@
         });
 
         window.addEventListener("chatwoot:ready", function () {
+          if (typeof window.$chatwoot?.reset === "function") {
+            window.$chatwoot.reset();
+          }
           window.$chatwoot.setUser("locataire-serenite-001", {
             name: "Camille Martin",
             email: "camille.martin@example.fr",

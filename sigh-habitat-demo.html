@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sérénité Habitat – Logement social Hauts-de-France</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Marianne", "Segoe UI", Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --bleu-principal: #0c4da2;
+      --bleu-clair: #e7f0ff;
+      --gris-clair: #f5f6f8;
+      --gris-texte: #2f3542;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { color: var(--gris-texte); background: white; line-height: 1.6; }
+    header {
+      background: url("https://images.unsplash.com/photo-1467803738586-46b7eb7b16a1?auto=format&fit=crop&w=1600&q=80") center/cover;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 77, 162, 0.75);
+    }
+    header .contenu {
+      position: relative;
+      color: white;
+      padding: 2.5rem;
+      max-width: 720px;
+    }
+    header h1 { font-size: clamp(2.3rem, 4vw, 3.5rem); margin-bottom: 1rem; font-weight: 600; }
+    header p { font-size: 1.15rem; opacity: 0.95; }
+    nav {
+      background: white;
+      border-bottom: 1px solid #e3e7ef;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav .conteneur {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      color: var(--bleu-principal);
+      font-size: 1.25rem;
+    }
+    .logo span {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bleu-clair);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+    }
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+      font-weight: 500;
+    }
+    ul.menu a {
+      color: var(--gris-texte);
+      text-decoration: none;
+    }
+    main { padding: 4rem 2rem 5rem; max-width: 1100px; margin: 0 auto; }
+    section { margin-bottom: 4rem; }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--bleu-principal);
+    }
+    .carte {
+      background: var(--gris-clair);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .valeurs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .valeurs li {
+      list-style: none;
+      background: var(--bleu-clair);
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-weight: 600;
+    }
+    .faq {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq details {
+      background: var(--gris-clair);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .faq p { margin-top: 0.75rem; color: #4a5161; }
+    .cta {
+      background: var(--bleu-principal);
+      color: white;
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .cta button {
+      margin-top: 1.5rem;
+      background: white;
+      color: var(--bleu-principal);
+      border: none;
+      padding: 0.9rem 2.3rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    footer {
+      padding: 2rem;
+      background: #0a3872;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="conteneur">
+      <div class="logo"><span>🏠</span>Sérénité Habitat</div>
+      <ul class="menu">
+        <li><a href="#logements">Nos logements</a></li>
+        <li><a href="#services">Accompagnement</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact & Chat</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="contenu">
+      <h1>Votre interlocuteur logement social en Hauts-de-France</h1>
+      <p>Information, accompagnement et suivi de vos demandes 100% en ligne pour les locataires et demandeurs.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="logements">
+      <h2>Offre de logements</h2>
+      <div class="carte">
+        <p>Plus de 40 000 logements sociaux répartis sur les agglomérations de Lille, Valenciennes et Dunkerque. Nos conseillers vous orientent vers le logement adapté à votre situation familiale et professionnelle.</p>
+      </div>
+      <ul class="valeurs">
+        <li>T2 à T5 disponibles sous 3 mois</li>
+        <li>Résidences seniors et jeunes actifs</li>
+        <li>Accès transports et écoles</li>
+        <li>Accompagnement dossier complet</li>
+      </ul>
+    </section>
+
+    <section id="services">
+      <h2>Services locataires</h2>
+      <div class="carte">
+        <p>Gestion des loyers, interventions techniques, médiation de voisinage et aides financières : un interlocuteur unique vous suit par téléphone, e-mail ou via le chat en bas à gauche.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Quels documents fournir pour une demande de logement ?</summary>
+          <p>Pièce d'identité, avis d'imposition, justificatifs de revenus, livret de famille et justificatif de domicile actuel. Notre agent peut vous guider pas à pas.</p>
+        </details>
+        <details>
+          <summary>Quel est le délai moyen d'attribution ?</summary>
+          <p>Entre 1 et 6 mois selon le secteur et la typologie. Nous partageons les délais prévisionnels en direct sur le chat.</p>
+        </details>
+        <details>
+          <summary>Comment signaler un problème technique ?</summary>
+          <p>Via votre espace locataire, par téléphone ou directement dans la bulle « Chattez avec nous ». Un technicien est mandaté sous 48 h.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <h2>Besoin d'un conseil immédiat ?</h2>
+      <p>Discutez avec notre conseillère virtuelle dédiée aux bailleurs sociaux français ou demandez un rappel.</p>
+      <button onclick="window.$chatwoot?.toggle()">Chattez avec nous</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sérénité Habitat · 120 rue Nationale, 59000 Lille · 03 20 00 00 00</p>
+    <p>© 2025 – Gestion locative et promoteur social</p>
+  </footer>
+
+  <script>
+    (function(d, t) {
+      var BASE_URL = "https://citadel-inbox-staging-f747bfc18e6d.herokuapp.com";
+      var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      g.src = BASE_URL + "/packs/js/sdk.js";
+      g.async = true;
+      s.parentNode.insertBefore(g, s);
+      g.onload = function () {
+        window.chatwootSDK.run({
+          websiteToken: "nUybQMkjq8WjveRgyo4RyinJ",
+          baseUrl: BASE_URL
+        });
+
+        window.addEventListener("chatwoot:ready", function () {
+          window.$chatwoot.setUser("locataire-serenite-001", {
+            name: "Camille Martin",
+            email: "camille.martin@example.fr",
+            identifier_hash: "change_me_if_secure_mode_enabled",
+            custom_attributes: {
+              statut: "Locataire",
+              dossier: "Renouvellement bail 2025"
+            }
+          });
+        });
+      };
+    })(document, "script");
+  </script>
+
+  <vapi-widget
+    public-key="af9a6794-ab87-4418-84a7-3d890d935d8a"
+    assistant-id="1c280868-781e-4a1b-8bb0-d804a5c44f18"
+    mode="voice"
+    theme="light"
+    base-bg-color="#ffffff"
+    accent-color="#0c4da2"
+    cta-button-color="#0c4da2"
+    cta-button-text-color="#ffffff"
+    border-radius="large"
+    size="full"
+    position="bottom-left"
+    title="Parler à l'agent"
+    start-button-text="Commencer"
+    end-button-text="Terminer"
+    chat-first-message="Bonjour, comment puis-je vous accompagner ?"
+    chat-placeholder="Décrivez votre besoin…"
+    voice-show-transcript="true"
+    consent-required="true"
+    consent-title="Conditions d'utilisation"
+    consent-content="En cliquant sur « Accorder », j'autorise l'enregistrement et le partage de mes échanges comme décrit dans nos CGU."
+    consent-storage-key="vapi_widget_consent_fr"
+  ></vapi-widget>
+  <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+</body>
+</html>

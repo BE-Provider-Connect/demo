@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NestHub Coliving - Community Living Redefined</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    nav {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #6b46c1;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #6b46c1;
+    }
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .hero-btn {
+      background: white;
+      color: #6b46c1;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .section {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: #718096;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .spaces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .space-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .space-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .space-img {
+      height: 200px;
+      background: linear-gradient(45deg, #f093fb, #f5576c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .space-card:nth-child(2) .space-img {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+    }
+    .space-card:nth-child(3) .space-img {
+      background: linear-gradient(45deg, #43e97b, #38f9d7);
+    }
+    .space-content {
+      padding: 1.5rem;
+    }
+    .space-content h3 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .space-content p {
+      color: #718096;
+      margin-bottom: 1rem;
+    }
+    .space-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6b46c1;
+    }
+    .space-price span {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #718096;
+    }
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .amenity-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .amenity-card:hover {
+      transform: scale(1.05);
+    }
+    .amenity-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .amenity-card h4 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    .amenity-card p {
+      color: #718096;
+      font-size: 0.9rem;
+    }
+    .community-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 5rem 2rem;
+      color: white;
+      text-align: center;
+    }
+    .community-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .community-section p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      display: block;
+    }
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .locations-section {
+      background: #f7fafc;
+      padding: 5rem 2rem;
+    }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .location-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .location-icon {
+      font-size: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .location-info h4 {
+      color: #2d3748;
+      margin-bottom: 0.25rem;
+    }
+    .location-info p {
+      color: #718096;
+      font-size: 0.9rem;
+    }
+    .cta-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: white;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: #718096;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(107, 70, 193, 0.3);
+    }
+    footer {
+      background: #1a202c;
+      color: white;
+      padding: 3rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    .footer-section p, .footer-section a {
+      color: #a0aec0;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-section a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #2d3748;
+      color: #718096;
+    }
+
+    /* ElevenLabs Widget Positioning */
+    elevenlabs-convai {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">NestHub</div>
+      <ul class="nav-links">
+        <li><a href="#spaces">Spaces</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Live Together, Thrive Together</h1>
+      <p>Experience the future of urban living. Flexible, furnished spaces with a built-in community of like-minded individuals.</p>
+      <button class="hero-btn">Explore Spaces</button>
+    </div>
+  </div>
+
+  <div class="section" id="spaces">
+    <div class="section-header">
+      <h2>Find Your Perfect Space</h2>
+      <p>Choose from private rooms to shared suites, all designed for modern living and meaningful connections.</p>
+    </div>
+    <div class="spaces-grid">
+      <div class="space-card">
+        <div class="space-img">🛏️</div>
+        <div class="space-content">
+          <h3>Private Room</h3>
+          <p>Your own private sanctuary with shared common spaces. Perfect for those who value privacy and community.</p>
+          <div class="space-price">$1,200 <span>/month</span></div>
+        </div>
+      </div>
+      <div class="space-card">
+        <div class="space-img">🏠</div>
+        <div class="space-content">
+          <h3>Private Studio</h3>
+          <p>A fully self-contained unit with your own kitchen and bathroom, plus access to all community spaces.</p>
+          <div class="space-price">$1,800 <span>/month</span></div>
+        </div>
+      </div>
+      <div class="space-card">
+        <div class="space-img">👥</div>
+        <div class="space-content">
+          <h3>Shared Suite</h3>
+          <p>Share a beautifully designed suite with a roommate. Most affordable way to join our community.</p>
+          <div class="space-price">$850 <span>/month</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="amenities">
+    <div class="section-header">
+      <h2>Everything You Need</h2>
+      <p>All-inclusive living with amenities designed for work, wellness, and connection.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card">
+        <div class="amenity-icon">💻</div>
+        <h4>Coworking Space</h4>
+        <p>High-speed WiFi, standing desks, and meeting rooms</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍳</div>
+        <h4>Chef's Kitchen</h4>
+        <p>Fully equipped communal kitchen with premium appliances</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🧘</div>
+        <h4>Wellness Studio</h4>
+        <p>Yoga and meditation space with weekly classes</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🎮</div>
+        <h4>Game Room</h4>
+        <p>Pool table, gaming consoles, and board games</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🌿</div>
+        <h4>Rooftop Garden</h4>
+        <p>Outdoor lounge with BBQ and city views</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🧺</div>
+        <h4>Laundry</h4>
+        <p>In-building laundry facilities included</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🛡️</div>
+        <h4>24/7 Security</h4>
+        <p>Secure access and on-site management</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🚴</div>
+        <h4>Bike Storage</h4>
+        <p>Secure bike parking and repair station</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="community-section" id="community">
+    <h2>Join Our Community</h2>
+    <p>More than just a place to live - it's a community of creators, entrepreneurs, and dreamers. Weekly events, skill-sharing sessions, and lifelong friendships.</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Community Members</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Monthly Events</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">8</span>
+        <span class="stat-label">Locations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">4.9</span>
+        <span class="stat-label">Member Rating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="locations-section" id="locations">
+    <div class="section-header">
+      <h2>Our Locations</h2>
+      <p>Prime locations in the most vibrant neighborhoods.</p>
+    </div>
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="location-icon">🏙️</div>
+        <div class="location-info">
+          <h4>Downtown</h4>
+          <p>Heart of the city, steps from transit</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-icon">🌳</div>
+        <div class="location-info">
+          <h4>Midtown</h4>
+          <p>Tree-lined streets, café culture</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-icon">🎨</div>
+        <div class="location-info">
+          <h4>Arts District</h4>
+          <p>Creative hub, galleries & studios</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-icon">🌊</div>
+        <div class="location-info">
+          <h4>Waterfront</h4>
+          <p>Bay views, waterfront trails</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section" id="contact">
+    <h2>Ready to Join the Nest?</h2>
+    <p>Schedule a tour and see why hundreds of members call NestHub home. Flexible leases, no hidden fees.</p>
+    <button class="cta-btn">Book a Tour</button>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>NestHub</h4>
+        <p>Redefining urban living through community, design, and flexibility.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="#">About Us</a>
+        <a href="#">Our Spaces</a>
+        <a href="#">Membership</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>hello@nesthub.co</p>
+        <p>(555) 987-6543</p>
+        <p>123 Community Lane</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 NestHub Coliving. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ElevenLabs Convai Widget -->
+  <elevenlabs-convai agent-id="agent_9701kc67dm88e7e8vrb9pn8yaw7y"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>

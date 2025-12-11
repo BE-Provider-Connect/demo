@@ -546,6 +546,32 @@
     </div>
   </footer>
 
+  <!-- Chatwoot Widget Script -->
+  <script>
+  (function(d,t) {
+    var BASE_URL="https://citadel-inbox-staging-f747bfc18e6d.herokuapp.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'nUybQMkjq8WjveRgyo4RyinJ',
+        baseUrl: BASE_URL
+      });
+
+      // Set user after widget is ready
+      window.addEventListener('chatwoot:ready', function () {
+        window.$chatwoot.setUser('francois-test-user', {
+          email: 'kiesecoms.francois@gmail.com',
+          name: 'Francois Kiesecoms',
+          identifier_hash: 'dd9b0c953f2fb21f1e8e502eff6422bdaa05ed69b43287dd5cbb27244f53f470'
+        });
+      });
+    }
+  })(document,"script");
+  </script>
+
   <!-- ElevenLabs Convai Widget -->
   <elevenlabs-convai agent-id="agent_9701kc67dm88e7e8vrb9pn8yaw7y"></elevenlabs-convai>
   <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
